@@ -10,7 +10,10 @@ test('undangan berisi data Korsen dan Mustika tanpa foto pasangan', () => {
     assert.match(html, /Korsen Doni Setiawan/);
     assert.match(html, /Mustika Rahma Dhani/);
     assert.match(html, /-7\.760785%2C112\.228930/);
-    assert.match(html, /class="mouse-icon"/);
+    assert.match(html, /class="cover-avatar"/);
+    assert.match(html, /demo\/hero-cover\.png/);
+    assert.match(html, /id="promise-parallax"/);
+    assert.match(html, /demo\/hero-cover\.png/);
     assert.match(html, /class="dove dove-one"/);
     assert.doesNotMatch(html, /class="curtain/);
     assert.doesNotMatch(css, /curtain-sway|open-left|open-right/);

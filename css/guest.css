@@ -33,6 +33,8 @@ a { color: inherit; }
 .cover-glow { position: absolute; width: 58vw; aspect-ratio: 1; border-radius: 50%; background: rgba(255,238,226,.18); filter: blur(35px); animation: glow 4s ease-in-out infinite alternate; }
 .kicker { margin: 0 0 1rem; color: var(--rose); font-size: .64rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; }
 .cover .kicker, .cover-note { color: rgba(255,250,245,.78); }
+.cover-avatar { width: 9rem; height: 9rem; max-width: 9rem; max-height: 9rem; margin: 0 auto 1.45rem; border: 2px solid rgba(255,255,255,.8); border-radius: 50%; overflow: hidden; box-shadow: 0 .5rem 1.8rem rgba(0,0,0,.25); flex-shrink: 0; }
+.cover-avatar img { width: 100%; height: 100%; max-width: 100%; max-height: 100%; object-fit: cover; object-position: center 20%; display: block; }
 .cover-mark { display: flex; align-items: center; justify-content: center; gap: .35em; width: 8.6rem; height: 8.6rem; margin: 0 auto 1.45rem; border: 1px solid rgba(255,255,255,.5); border-radius: 50%; font-family: "Playfair Display", serif; font-size: 2.5rem; }
 .cover-mark b { font-family: "Great Vibes", cursive; font-size: 2rem; font-weight: 400; }
 h1, h2, h3, blockquote { font-family: "Playfair Display", serif; font-weight: 500; }
@@ -50,9 +52,11 @@ h1 em { display: block; margin: .1rem 0; font-size: .8em; }
 #invitation { overflow: hidden; }
 .section { position: relative; padding: 5.75rem 1.35rem; }
 .section-inner { width: min(100%, 34rem); margin: auto; text-align: center; }
-.hero { min-height: 100dvh; display: grid; place-items: center; padding-block: 3rem; background: radial-gradient(circle at 12% 15%, rgba(238,195,178,.85), transparent 30%), radial-gradient(circle at 90% 80%, rgba(166,77,104,.18), transparent 33%), var(--blush); }
-.hero::before { position: absolute; inset: 1.2rem; border: 1px solid rgba(109,53,72,.16); content: ""; pointer-events: none; }
-.hero-inner { position: relative; }
+.hero { position: relative; min-height: 100dvh; display: grid; place-items: center; padding-block: 3rem; background: var(--blush); overflow: hidden; }
+.hero-parallax-bg { position: absolute; inset: -15%; background-size: cover; background-position: center 25%; filter: brightness(.85); transform: translateY(0); will-change: transform; pointer-events: none; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(248,231,223,.65) 0%, rgba(248,231,223,.85) 60%, rgba(248,231,223,1) 100%); pointer-events: none; }
+.hero::before { position: absolute; inset: 1.2rem; z-index: 2; border: 1px solid rgba(109,53,72,.16); content: ""; pointer-events: none; }
+.hero-inner { position: relative; z-index: 3; }
 .monogram { display: flex; align-items: center; justify-content: center; gap: .28em; width: 10.5rem; height: 10.5rem; margin: 0 auto 1.6rem; border: 1px solid var(--rose); border-radius: 48% 52% 47% 53% / 56% 44% 56% 44%; color: var(--rose-deep); font-family: "Playfair Display", serif; font-size: 3rem; animation: rotate-shape 12s ease-in-out infinite; }
 .monogram b { font-family: "Great Vibes", cursive; font-size: 2.1rem; font-weight: 400; }
 .wedding-label { margin: 0 0 .65rem; color: var(--rose-deep); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; }
@@ -101,7 +105,10 @@ h3 { margin: 0; font-size: clamp(1.15rem, 4vw, 1.5rem); line-height: 1.12; lette
 .location address { margin: 0 0 1.4rem; font-size: .88rem; font-style: normal; line-height: 1.8; }
 .location .outline-button { color: var(--rose-deep); }
 
-.promise-section { color: var(--ivory); background: linear-gradient(160deg, #6d3548, #442333); }
+.promise-section { position: relative; color: var(--ivory); background: var(--rose-deep); overflow: hidden; }
+.promise-parallax-bg { position: absolute; inset: -15%; background-size: cover; background-position: center; filter: brightness(.4); transform: translateY(0); will-change: transform; pointer-events: none; }
+.promise-overlay { position: absolute; inset: 0; background: linear-gradient(160deg, rgba(109,53,72,.75), rgba(68,35,51,.85)); pointer-events: none; }
+.promise-section .section-inner { position: relative; z-index: 2; }
 .promise-flower { color: var(--peach); font-size: 3.4rem; animation: sway 4s ease-in-out infinite; }
 .promise-section .kicker { color: var(--peach); }
 blockquote { max-width: 26rem; margin: 1.5rem auto 1.4rem; font-size: clamp(1.65rem, 7vw, 2.2rem); font-style: italic; line-height: 1.25; letter-spacing: -.045em; }
